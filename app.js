@@ -36,6 +36,15 @@
  $('left').onclick=()=>{state.heading=Flight.wrap(state.heading-10);paint();follow();};
  $('right').onclick=()=>{state.heading=Flight.wrap(state.heading+10);paint();follow();};
  $('reset').onclick=()=>{state=Flight.initial();$('speed').value=state.speed;$('height').value=state.height;paint();follow();};
+  $('coverage').onclick=()=>{
+  state.speed=40;
+  state.height=300;
+  $('speed').value=40;
+  $('height').value=300;
+  state.paused=true;
+  paint();
+  follow();
+};
  for(const [id,min,max] of [['speed',0,250],['height',50,5000]]){
    $(id).onchange=()=>{const n=Number($(id).value);if(Number.isFinite(n))state[id]=Flight.clamp(n,min,max);$(id).value=state[id];paint();follow();};
  }
