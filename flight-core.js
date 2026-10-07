@@ -6,7 +6,7 @@
   function step(state, dt) {
     if (state.paused || dt <= 0) return {...state};
     const rad = Math.PI / 180, R = 6371000;
-    const distance = state.speed * dt;
+    const distance = state.speed;
     const a = distance / R, b = state.heading * rad, lat = state.lat * rad, lon = state.lon * rad;
     const lat2 = Math.asin(Math.sin(lat)*Math.cos(a)+Math.cos(lat)*Math.sin(a)*Math.cos(b));
     const lon2 = lon + Math.atan2(Math.sin(b)*Math.sin(a)*Math.cos(lat),Math.cos(a)-Math.sin(lat)*Math.sin(lat2));
