@@ -4,7 +4,7 @@
   const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
   const wrap = v => ((v % 360) + 360) % 360;
   function step(state, dt) {
-    if (state.paused || dt <= 0) return {...state};
+    if (state.paused || dt <= 0 || state.speed === 0) return {...state};
     const rad = Math.PI / 180, R = 6371000;
     const distance = state.speed * dt;
     const a = distance / R, b = state.heading * rad, lat = state.lat * rad, lon = state.lon * rad;
