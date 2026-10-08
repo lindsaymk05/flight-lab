@@ -33,8 +33,8 @@
      pixelOffset:new Cesium.Cartesian2(0,38),showBackground:true}});
  function fieldView(){
    state.paused=true;paint();
-   viewer.camera.flyTo({destination:Cesium.Cartesian3.fromDegrees(-75.9348699539101,40.30778341166797,650),
-     orientation:{heading:0,pitch:Cesium.Math.toRadians(-65),roll:0},duration:1.3});
+   viewer.camera.flyTo({destination:Cesium.Cartesian3.fromDegrees(-75.9348699539101,40.30778341166797,750),
+     orientation:{heading:0,pitch:Cesium.Math.toRadians(-90),roll:0},duration:1.3});
  }
  $('fieldView').onclick=fieldView;
  function paint(){
@@ -46,7 +46,7 @@
  $('pause').onclick=()=>{state.paused=true;paint();};
  $('left').onclick=()=>{state.heading=Flight.wrap(state.heading-10);paint();follow();};
  $('right').onclick=()=>{state.heading=Flight.wrap(state.heading+10);paint();follow();};
- $('reset').onclick=()=>{state=Flight.initial();$('speed').value=state.speed;$('height').value=state.height;paint();follow();};
+ $('reset').onclick=()=>{state=Flight.initial();$('speed').value=state.speed;$('height').value=state.height;paint();fieldView();};
   $('coverage').onclick=()=>{
   state.speed=40;
   state.height=300;
