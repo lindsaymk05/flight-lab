@@ -1,6 +1,6 @@
 /* Simplified spherical movement, not aircraft physics. */
 (function(root) {
-  const initial = () => ({lon:-75.93, lat:40.33, height:500, heading:0, speed:70, paused:true});
+  const initial = () => ({lon:-75.9348699539101, lat:40.30778341166797, height:500, heading:0, speed:70, paused:true});
   const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
   const wrap = v => ((v % 360) + 360) % 360;
   function step(state, dt) {

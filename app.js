@@ -22,18 +22,18 @@
    point:{pixelSize:16,color:Cesium.Color.GOLD,outlineColor:Cesium.Color.BLACK,outlineWidth:2},
    label:{text:'SPORTS MEDIA CAMERA',font:'14px sans-serif',pixelOffset:new Cesium.Cartesian2(0,-28),showBackground:true}
  });
- viewer.entities.add({position:Cesium.Cartesian3.fromDegrees(-75.93,40.33,0),
+ viewer.entities.add({position:Cesium.Cartesian3.fromDegrees(-75.9348699539101,40.30778341166797,0),
    point:{pixelSize:10,color:Cesium.Color.WHITE},
-   label:{text:'Approximate Alvernia campus area',font:'14px sans-serif',pixelOffset:new Cesium.Cartesian2(0,22),showBackground:true}});
+   label:{text:'Alvernia Turf Field',font:'14px sans-serif',pixelOffset:new Cesium.Cartesian2(0,22),showBackground:true}});
  // Alvernia Turf Field is behind the PEC at 920 Laverna Drive.
- // The teaching marker is approximate; it is not a surveyed field-center coordinate.
- const fieldArea = Cesium.Cartesian3.fromDegrees(-75.93,40.33,0);
+ // Field center coordinates supplied from a map pin; not a surveyed position.
+ const fieldArea = Cesium.Cartesian3.fromDegrees(-75.9348699539101,40.30778341166797,0);
  viewer.entities.add({position:fieldArea,
-   label:{text:'ALVERNIA TURF FIELD AREA (approx.)',font:'13px sans-serif',
+   label:{text:'ALVERNIA TURF FIELD',font:'13px sans-serif',
      pixelOffset:new Cesium.Cartesian2(0,38),showBackground:true}});
  function fieldView(){
    state.paused=true;paint();
-   viewer.camera.flyTo({destination:Cesium.Cartesian3.fromDegrees(-75.93,40.33,1250),
+   viewer.camera.flyTo({destination:Cesium.Cartesian3.fromDegrees(-75.9348699539101,40.30778341166797,650),
      orientation:{heading:0,pitch:Cesium.Math.toRadians(-65),roll:0},duration:1.3});
  }
  $('fieldView').onclick=fieldView;
