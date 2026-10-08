@@ -5,7 +5,7 @@ This is an original teaching starter: a steerable moving point, not a realistic 
 ## Run
 Upload all files in this folder to the root of a public GitHub repository. In Settings → Pages choose Deploy from a branch, main, /(root). Open the site URL after deployment. Alternatively serve this folder with your editor's local web server. If Python is already installed: `python -m http.server 8000`, then open http://localhost:8000.
 
-Internet and WebGL are required. CesiumJS 1.145 and its matching CSS load from Cesium's CDN. No build step, Node installation, ion token, imagery service, or paid data is needed. Keep Cesium's on-screen credits visible.
+Internet and WebGL are required. CesiumJS 1.145 and its matching CSS load from Cesium's CDN. No build step, Node installation, or ion token is needed. Satellite imagery is requested from an external Esri tile service; availability and usage terms are controlled by the provider. Keep Cesium's on-screen credits visible.
 
 ## Controls
 Fly starts motion; Pause stops it. Left/Right change heading by 10 degrees. Speed is 0–250 meters/second; height is 50–5000 meters above the model ellipsoid. Height changes instantly: this starter does not simulate climbing. Reset restores the paused initial state. Switching to another browser tab pauses the app. On returning, press Fly again. The camera follows while flying.
@@ -14,8 +14,14 @@ Fly starts motion; Pause stops it. Left/Right change heading by 10 degrees. Spee
 Open tests.html on the same site. Also perform the six manual checks on Canvas page 05. Optional developer command: `node -e "require('./flight-core.js');require('./tests.js')"`.
 
 ## Model and geography
-Uses spherical destination-point math with Earth radius 6,371,000 m, displayed on Cesium's ellipsoid globe. This approximation is for learning. Heading remains constant between clicks. Frame dt is capped at 0.1 s to prevent large jumps after stalls, so low frame rates can slow simulated time. There is no lift, drag, bank, pitch, collision, real terrain, flight data, or navigation accuracy. The marker is a point, not an aircraft model. Grid lines provide visual reference, not roads.
-The approximate origin (-75.93, 40.33) is a Reading-area classroom reference, not a verified Alvernia campus location. Validate real location claims separately.
+Uses spherical destination-point math with Earth radius 6,371,000 m, displayed on Cesium's ellipsoid globe. This approximation is for learning. Heading remains constant between clicks. Frame dt is capped at 0.1 s to prevent large jumps after stalls, so low frame rates can slow simulated time. There is no lift, drag, bank, pitch, collision, real terrain, flight data, or navigation accuracy. The marker is a point, not an aircraft model. Satellite basemap tiles provide geographic context but are not live imagery.
+The approximate origin (-75.93, 40.33) is a Reading-area teaching reference, NOT a surveyed Alvernia Turf Field coordinate. The field is listed at 920 Laverna Drive, behind the PEC; verify the field position visually before describing the marker as the exact field location. Validate real location claims separately.
+
+## New aerial map adaptation
+The blue grid was replaced with a satellite imagery layer and a Field Aerial View button. The camera starts in an aerial view of the approximate Alvernia campus area. Coverage View pauses motion and returns to the aerial view. Imagery is external and may not load if its service is unavailable. No photorealistic 3D structures are promised.
+
+Official field location: https://auwolves.com/facilities/turf-field/152
+Imagery: Esri World Imagery (see provider attribution on the map).
 
 ## Student additions
 
